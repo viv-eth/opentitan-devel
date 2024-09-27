@@ -663,10 +663,15 @@ struct OtSignConversionUnsupportedType {
  */
 #define OT_UNSIGNED(value)        \
   _Generic((value),               \
-      int8_t: (uint8_t)(value),   \
+      int8_t:  (uint8_t)(value),  \
       int16_t: (uint16_t)(value), \
       int32_t: (uint32_t)(value), \
       int64_t: (uint64_t)(value), \
+      uint8_t:  (uint8_t)(value), \
+      uint16_t: (uint16_t)(value),\
+      uint32_t: (uint32_t)(value),\
+      uint64_t: (uint64_t)(value),\
+      size_t:  (size_t)(value),   \
       default: (struct OtSignConversionUnsupportedType){.err = 1})
 #else  // __cplusplus
 // Templates require "C++" linkage. Even though this block is only reachable
