@@ -35,7 +35,7 @@ static void mmio_region_memcpy32(mmio_region_t base, uint32_t offset,
   if (misalignment != 0) {
     // The number of bytes missing to bring `offset` back into alignment.
     // For example, 0x3 has misalignment of 3 and realignment of 1.
-    size_t realignment = sizeof(uint32_t) - OT_UNSIGNED(misalignment);
+    size_t realignment = sizeof(uint32_t) - OT_UNSIGNED((size_t)misalignment);
     // Note that we might be doing less I/O than the misalignment requires; we
     // might be off by a single byte, but not have the full three bytes for full
     // realignment.
