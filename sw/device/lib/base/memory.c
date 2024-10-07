@@ -25,7 +25,7 @@ static size_t compute_num_leading_bytes(const void *left, const void *right,
   
   const ptrdiff_t misalign = (ptrdiff_t)misalignment32_of((uintptr_t)left);
 
-  const size_t left_ahead = OT_UNSIGNED(misalignment32_of((uintptr_t)left));
+  const size_t left_ahead = OT_UNSIGNED((ptrdiff_t)misalignment32_of((uintptr_t)left));
   const size_t right_ahead = OT_UNSIGNED(misalignment32_of((uintptr_t)right));
   if (right == NULL || left_ahead == right_ahead) {
     return (4 - left_ahead) & 0x3;
