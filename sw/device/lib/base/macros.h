@@ -419,9 +419,9 @@ extern "C++" {
 /**
  * A macro representing the OpenTitan execution platform.
  */
-// #if __riscv_xlen == 32
-// #define OT_PLATFORM_RV32 1
-// #endif
+#if __riscv_xlen == 32
+#define OT_PLATFORM_RV32 1
+#endif
 
 /**
  * A macro indicating whether software should assume reduced hardware
